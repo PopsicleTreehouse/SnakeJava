@@ -53,7 +53,6 @@ public class GameFrame extends JFrame implements KeyListener {
                 panel.repaint();
             }
         });
-        // timer.start();
         this.setVisible(true);
         panel.requestFocusInWindow();
         panel.addKeyListener(this);
@@ -61,9 +60,15 @@ public class GameFrame extends JFrame implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(!gameStarted) {
+        if (!gameStarted) {
             gameStarted = true;
             timer.start();
+        }
+        if (game.gameOver) {
+            gameStarted = false;
+            game = new Game();
+            panel.repaint();
+            return;
         }
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:

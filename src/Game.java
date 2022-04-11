@@ -6,17 +6,20 @@ import java.awt.Color;
 
 public class Game {
 
-    public boolean gameOver = false;
+    public boolean gameOver;
     private int points;
     private Snake snake;
     private GameObject target;
     private GameObject[][] objects;
-    // KeyBoard events are asynchronous, so have to place them in a queue which actually acts when the frame changes
+    // KeyBoard events are asynchronous, so have to place them in a queue which
+    // is read each frames
     private ArrayDeque<Integer> actionQueue;
     private static final int MAX_HEIGHT = 16, MAX_WIDTH = 16, CELL_WIDTH = 25, CELL_HEIGHT = 25;
     private static final int DIRECTION_LEFT = 0, DIRECTION_RIGHT = 1, DIRECTION_UP = 2, DIRECTION_DOWN = 3;
 
     public Game() {
+        points = 0;
+        gameOver = false;
         objects = new GameObject[MAX_HEIGHT][MAX_WIDTH];
         actionQueue = new ArrayDeque<>();
         snake = new Snake(5, 5, CELL_WIDTH, CELL_HEIGHT, Color.GREEN, 1, 0);
@@ -125,7 +128,6 @@ public class Game {
             }
         }
     }
-
 
     /**
      * Draws all the stuff in the game without changing them
