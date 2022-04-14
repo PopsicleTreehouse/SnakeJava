@@ -7,7 +7,7 @@ import java.awt.Color;
 public class Game {
 
     public boolean gameOver;
-    private int points;
+    public int points;
     private Snake snake;
     private GameObject target;
     private GameObject[][] objects;
@@ -140,7 +140,7 @@ public class Game {
         snake.draw(g);
         g.setColor(Color.BLACK);
         g.drawString("Points: " + points, MAX_WIDTH * CELL_WIDTH + 30, CELL_HEIGHT - 5);
-        for (GameObject[] row : this.objects) {
+        for (GameObject[] row : objects) {
             for (GameObject col : row) {
                 col.draw(g);
             }

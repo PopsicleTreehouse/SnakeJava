@@ -13,7 +13,7 @@ public class Target extends GameObject {
 
     public Target(GameObject g, Color c) {
         super(g);
-        this.color = c;
+        color = c;
     }
 
     @Override

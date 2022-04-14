@@ -85,6 +85,6 @@ public class GameObject {
     }
 
     public boolean collidedWith(GameObject go) {
-        return this.rect.x == go.rect.x && this.rect.y == go.rect.y;
+        return rect.x == go.rect.x && rect.y == go.rect.y;
     }
 }
